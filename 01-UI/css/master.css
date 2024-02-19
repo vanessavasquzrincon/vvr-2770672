@@ -9,6 +9,8 @@ body {
     background: var(--color-pri);
     min-height: 100vh;
     font-family: var(--font-fml);
+    background-size: 100% 100%;
+    height: 100%;
 }
 
 main {
@@ -64,7 +66,7 @@ section {
 
 
 
-section.login{
+section.login, section.create{
     menu{
         padding: 0;
         display: flex;
@@ -309,8 +311,26 @@ menu{
             text-align: center;
             text-transform: uppercase;
             margin: 2.4rem 0;
-        
     }
+    a.add:is(:link, :visited){
+        background-color: #830d73;
+        border-radius: 40px;
+        color: #fff;
+        text-decoration: none;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        transition: all 0.4s ease-in;
+        width: 370px;
+        &:hover{
+            transform: scale(1.05);
+        }
+
+    }
+        
+    
 
 table{
     color: #814dd4;
@@ -321,27 +341,101 @@ table{
         flex-direction: column;
         gap: 0.6rem;
         tr{
+            
+            border-radius: 20px;
             background-color: #FFFFFF;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             &:nth-last-child(even){
             background-color: #cc97fd;
-            border-radius: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             }
+
         }
-        td{ 
-            padding: 16px;
-            text-decoration: none;
-            transform: scale(0.9);
-            transition: all 0.2s ease-in;
-        }
-        a:is(:hover){
-            transform: scale(1);
-        }
+        
+        
 
         
 
     }
+    
+    
+    
+    
 }
+section.create {
+    margin-top: -0.9px;
+    h1 {
+        font-size: 28px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 2.4rem 0;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrar los elementos horizontalmente */
+        img{
+            margin-bottom: 30px;
+        }
+        
+        img#upload {
+            border-radius: 200px;
+            cursor: pointer;
+            transition: all 0.40s ease-out;
+            margin-top: 20px; /* Ajustar el espacio entre la imagen y los inputs */
+        }
+        input#photo {
+            display: none;
+            margin-top: 20px; /* Ajustar el espacio entre los inputs */
+        }
+    }
+}
+
+section.edit, section.show {
+    margin-top: -0.9px;
+    h1 {
+        font-size: 28px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 2.4rem 0;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrar los elementos horizontalmente */
+        img{
+            margin-bottom: 30px;
+        }
+        
+        img#upload {
+            border-radius: 200px;
+            cursor: pointer;
+            transition: all 0.40s ease-out;
+            margin-top: 20px; /* Ajustar el espacio entre la imagen y los inputs */
+        }
+        input#photo {
+            display: none;
+            margin-top: 20px; /* Ajustar el espacio entre los inputs */
+        }
+    }
+}
+
+
+section.show{
+    
+}
+
+
+
+
+
+
+
 
