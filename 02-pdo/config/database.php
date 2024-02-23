@@ -4,9 +4,7 @@
     try{
         $conx = new PDO("mysql:host=".HOST.";dbname=".DBNAME."",USER, PASS);
 
-        //if($conx){
-           // echo "<h4> conection</h4>";
-        //}
+        
     }catch(PDOException $e){
         echo "Error: " . $e->getMessage();
 }
@@ -21,6 +19,27 @@ function getAllPets($conx){
         $stm->execute();
         return $stm->fetchAll();
 
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+
+
+//add pet
+
+function addPet($conx, $data){
+    try {
+        $sql = "INSERT INTO pets (photo, name, type, age, weight, breed, city)
+                VALUES (:photo, :name, :type, :age, :weight, :breed, :city)";
+        $smt = $conx->prepare($sql);
+
+        if ($smt->execute($data)){
+            $_SESSION['msg'] = 'The  ' . $data['name'] . ' pet was added successfully'; 
+            return true;
+        } else {
+            return false;
+        }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

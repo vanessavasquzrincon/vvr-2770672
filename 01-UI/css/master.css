@@ -354,6 +354,14 @@ table{
             justify-content: space-between;
             align-items: center;
             }
+            td:nth-child(1) {
+                img {
+                    border-radius: 100px;
+                    height: 60px;
+                    border: 2px solid #55297e;
+                    width: 60px;
+                }
+            }
             td:nth-child(2){
                
                 display: flex;
@@ -399,9 +407,12 @@ section.create {
         }
         
         img#upload {
-            border-radius: 200px;
+            border-radius: 50%;
             cursor: pointer;
             transition: all 0.40s ease-out;
+            height: 240px;
+            width: 240px;
+
             margin-top: 20px; /* Ajustar el espacio entre la imagen y los inputs */
             object-fit: cover;
         }
