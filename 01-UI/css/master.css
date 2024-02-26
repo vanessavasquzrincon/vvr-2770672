@@ -240,7 +240,7 @@ section.dashboard{
 margin-top: 5px;
     h1{
         font-size: 24px;
-        color: #1E1E1b;
+        color: #ffffff;
         text-align: center;
         text-transform: uppercase;
         margin: 2.4rem 0;
@@ -445,6 +445,10 @@ section.edit, section.show {
             cursor: pointer;
             transition: all 0.40s ease-out;
             margin-top: 20px; /* Ajustar el espacio entre la imagen y los inputs */
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+
         }
         input#photo {
             display: none;
@@ -461,6 +465,7 @@ section.show{
     img.photo{
         border-radius: 200px;
         border: 2px solid #fff;
+        
     }
     div.info{
         display: grid;
@@ -482,6 +487,9 @@ section.show{
 
 .show-img{
     border-radius: 200px;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
 }
 
 div.pets{
