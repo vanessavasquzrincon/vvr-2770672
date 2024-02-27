@@ -83,28 +83,21 @@
                 <?php endif ?>
 
                 $('body').on('click', '.delete', function () {
-
-                    $id = $(this).attr('data-id')
-                    Swal.fire({
+                $id = $(this).attr('data-id')
+                Swal.fire({
                     title: "Are you sure?",
                     text: "You won't be able to revert this!",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#3C096C",
-                    cancelButtonColor: "#3C096C",
+                    confirmButtonColor: "#55297e",
+                    cancelButtonColor: "#55297e",
                     confirmButtonText: "Yes, delete it!"
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
-                        icon: "success",
-                        confirmButtonColor: "#3C096C"
-                        });
-                }
-                });
-                
-            });
+                        window.location.replace('delete.php?id=' + $id)
+                    }
+                })
+            })
            
         });
     </script>
