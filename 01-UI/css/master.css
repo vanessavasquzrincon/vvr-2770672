@@ -143,7 +143,7 @@ input {
     border: none;
     border-radius: 50px;
     padding: 32px;
-    width: 320px;
+    width: 300px;
     margin-bottom: 49px; /* Agrega espacio entre los input y el button */
     background-color: #fffb;
     transition: all 0.5s ease-in;

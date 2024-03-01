@@ -6,9 +6,23 @@
     require "config/app.php";
     require "config/database.php";
 
+    $user = getUser($conx, $_SESSION['uid']);
+
     if(!isset($_SESSION['uid'])){
         $_SESSION['error'] = "Please login first to access dashboard.";
         header("location: index.php");
+    }
+
+    function getUser($conx, $id){
+        try{
+            $sql = "SELECT * FROM users WHERE id = :id";
+            $stm = $conx->prepare($sql);
+            $stm->execute(['id' => $id]);
+            return $stm->fetch();
+    
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }
 
     
@@ -45,6 +59,24 @@
                 padding: 10px 20px;
                 text-decoration: none;
             }
+
+            nav{
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                gap: 1rem;
+
+                img{
+                    border: 2px solid #fff;
+                    border-radius: 60%;
+                    width: 200px;
+                    object-fit: cover;
+                }
+                h4, h5{
+                    margin: 0;
+                }
+            }
         }
 
         div.menu.open{
@@ -55,6 +87,12 @@
         div.menu.close{
             animation: openMenu 0.1s ease-in forwards;
 
+        }
+
+        a.closem{
+            position: absolute;
+            top: 100px;
+            left: 1100px;
         }
 
         @keyframes closeMenu {
@@ -85,6 +123,9 @@
 <div class="menu">
     <a href="javascript:;" class="closem" >X</a>
     <nav>
+        <img src="<?=URLIMGS."/".$user['photo']?>" alt="Photo">
+        <h4><?=$user['fullname']?></h4>
+        <h5><?=$user['role']?></h5>
         <a href="close.php">Close Session</a>
 
     </nav>
@@ -100,6 +141,9 @@
                 <img src="<?php echo URLIMGS . "/mburguer.svg" ?>" alt="Menu Burger">
             </a>
         </header>
+        <?php if ($_SESSION['urole'] == 'Admin'):?>
+
+    
         <section class="dashboard">
             <h1>Dashboard</h1>
             <menu>
@@ -125,6 +169,26 @@
                 </ul>
             </menu>
         </section>
+        <?php elseif ($_SESSION['urole'] == 'Custom'):  ?>
+            <section class="dashboard">
+            <h1>Dashboard</h1>
+                <menu>
+                    <ul>
+                        <li>
+                        <a href="#">
+                            <img src="<?php echo URLIMGS . "/ico-adoptions.svg" ?>" alt="Adoptions">
+                            <span>Module Adoptions</span>
+                        </a>
+
+                        </li>
+                    </ul>
+                </menu>
+            </section>
+            
+
+        <?php endif ?>
+
+
     </main>
     
     <script src="<?php echo URLJS . "/sweetalert2.js" ?>"></script>

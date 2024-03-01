@@ -24,8 +24,9 @@
 
             if ($stm->rowCount() > 0) {
                 $user = $stm->fetch();
-                if (password_verify($pass, $user['PASSWORD'])) {
+                if (password_verify($pass, $user['password'])) {
                     $_SESSION['uid'] = $user['id'];
+                    $_SESSION['urole'] = $user['role'];
                     return true;
                 }else{
                     $_SESSION['error'] = "Email or Password incorrect, please try again";
@@ -42,6 +43,25 @@
             echo "Error: " . $e->getMessage();
         }
     }
+
+    //add user
+
+function addUser($conx, $data){
+    try {
+        $sql = "INSERT INTO users (document, fullname, photo, phone, email, password)
+                VALUES (:document, :fullname, :photo, :phone, :email, :password)";
+        $smt = $conx->prepare($sql);
+
+        if ($smt->execute($data)){
+            $_SESSION['msg'] = 'The  ' . $data['fullname'] . ' user was registered succesfully'; 
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
 
 ?>
 
