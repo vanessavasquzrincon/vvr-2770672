@@ -57,12 +57,41 @@
             <a href="javascript:;">Login</a>
             <a href="{{ url('register/') }}">Register</a>
         </menu>
+        {{-- @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            
+        @endforeach --}}
         <form action="{{ route('login') }}" class="form_login" method="post">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+            @csrf
+            <input type="email" name="email" placeholder="Email" >
+            <input type="password" name="password" placeholder="Password" >
             <button type="submit">Login</button>
         </form>
      
     </section>
 
+@endsection
+
+@section('js')
+    @if (count($errors->all()) > 0)
+    @php $error = '' @endphp
+        @foreach ($errors->all() as $message)
+            @php $error .= '<li>' . $message . '</li>' @endphp
+        @endforeach
+        <script>
+            $(document).ready(function () {
+                Swal.fire({
+                    position: "top-end",
+                    title: "Ops!",
+                    html: `@php echo $error @endphp`,
+                    text: "{{ $error }}",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 5000
+                })
+            })
+        </script>
+        
+    @endif
+    
 @endsection
