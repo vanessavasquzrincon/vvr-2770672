@@ -51,25 +51,20 @@
 
 
 <section class="dashboard">
-    <h1>Dashboard</h1>
+    <h1>Dashboard: Customer</h1>
     <menu>
         <ul>
+            
             <li>
-                <a href="{{ url('users') }}">
-                    <img src="{{ asset('images/ico-users.svg') }}" alt="Users">
-                    <span>Module User</span>    
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('pets') }}">
-                    <img src="{{ asset('images/ico-pets.svg') }}" alt="Pets">
-                    <span>Module Pets</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('adoptions') }}">
+                <a href="{{ url('mydata') }}">
                     <img src="{{ asset('images/ico-adoptions.svg') }}" alt="Adoptions">
-                    <span>Module Adoptions</span>
+                    <span>My Data</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('myadoptions') }}">
+                    <img src="{{ asset('images/ico-adoptions.svg') }}" alt="Adoptions">
+                    <span>My Adoptions</span>
                 </a>
             </li>
         </ul>

@@ -242,6 +242,15 @@ header.nav.level-0{
     }
 }
 
+header.nav.level-2{
+    a:last-of-type{
+        visibility: hidden;
+        pointer-events: none;
+        
+    }
+}
+
+
 section.dashboard{
 
 margin-top: 5px;
@@ -691,3 +700,41 @@ color: #fff;
 outline: none;
 }
 
+table{
+    tfoot{
+        nav{
+
+            ul.pagination{
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    a:is(:link, :visited){
+                        border: 2px solid #fff;
+                        border-radius: 30px;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 2rem;
+                        text-decoration: none;
+                        transition: all 0.2s ease-in;
+                        height: 60px;
+                        width: 60px;
+                        
+                    }
+                    a[rel=prev]:hover{
+                        transform: translateX(-6px);
+                    }
+                    a[rel=next]:hover{
+                        transform: translateX(6px);
+                    }
+                }
+                li.disabled{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
