@@ -35,14 +35,14 @@
                             <span>{{ $user->role}}</span>
                         </td> 
                         <td>
-                            <a href= "{{url('users/. $user->id')}}" class="show">
-                                <img src="{{asset('images/ico-view.svg')}}" alt="Show">
+                            <a href="{{ route('users.show', $user->id) }}" class="show">
+                                <img src="{{ asset('images/ico-view.svg') }}" alt="Show">
                             </a>
-                            <a href= "{{url('users/edit/ . $user->id')}}" class="edit">
-                                <img src="{{asset('images/ico-edit.svg')}}" alt="Edit">
+                            <a href="{{ route('users.edit', $user->id) }}" class="edit">
+                                <img src="{{ asset('images/ico-edit.svg') }}" alt="Edit">
                             </a>
-                            <a href="javascript:;" class="delete" data-id="{{$user->id}}">
-                                <img src="{{asset('images/ico-delete.svg')}}" alt="Delete">
+                            <a href="javascript:;" class="delete" data-id="{{ $user->id }}">
+                                <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete">
                             </a>
                         </td>
                     </tr>
@@ -63,9 +63,24 @@
         </tr>
     </tfoot>
 </table>
-</main>
+</main> 
+@endsection
 
-
-
+@section('js')
+    @if (session('message'))
+        <script>
+            $(document).ready(function () {
+                Swal.fire({
+                    position: "top-end",
+                    title: "Great Job!",
+                    text: "{{ session('message') }}",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 5000
+                })
+            })
+        </script>
+        
+    @endif
     
 @endsection

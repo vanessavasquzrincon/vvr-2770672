@@ -21,7 +21,7 @@
             <a href="<?php echo e(url('login/')); ?>">Login</a>
             <a href="<?php echo e(url('javascript:;')); ?>">Register</a>
         </menu>
-        <form action="<?php echo e(route('users.create')); ?>"  method="post" enctype="multipart/form-data">
+        <form action="<?php echo e(route('users.store')); ?>"  method="post" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
             <img src="<?php echo e(asset('images/ico-users.svg')); ?>" alt="" id="upload" width="200px">
             <input type="file" name="photo" id="photo" accept="image/*" value="<?php echo e(old('document')); ?>" >

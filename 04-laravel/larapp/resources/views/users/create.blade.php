@@ -21,7 +21,7 @@
             <a href="{{ url('login/') }}">Login</a>
             <a href="{{ url('javascript:;') }}">Register</a>
         </menu>
-        <form action="{{ route('users.create') }}"  method="post" enctype="multipart/form-data">
+        <form action="{{ route('users.store') }}"  method="post" enctype="multipart/form-data">
             @csrf
             <img src="{{asset('images/ico-users.svg')}}" alt="" id="upload" width="200px">
             <input type="file" name="photo" id="photo" accept="image/*" value="{{ old('document')}}" >
