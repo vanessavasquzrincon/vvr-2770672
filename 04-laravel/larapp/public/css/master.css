@@ -493,18 +493,26 @@ section.show{
         p{
             border-radius: 50px;
             background-color: #fff;
-            padding: 10px;
+            padding: 20px;
             font-size: 20px;
             margin: 0;
-            width: 200px;
+            width: 300px;
         }
+        
+
     }
+}
+
+p.role{
+    font-size: 20px;
+    color: #fff;
+    
 }
 
 .show-img{
     border-radius: 200px;
-    width: 280px;
-    height: 280px;
+    width: 290px;
+    height: 290px;
     object-fit: cover;
 }
 

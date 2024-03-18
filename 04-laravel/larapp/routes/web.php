@@ -23,6 +23,9 @@ Route::get('/', function () {
 });
 
 
+
+
+
 Route::get('/dashboard', function () {
     if (Auth::user()->role == 'Admin') {
         return view('dashboard-admin');
