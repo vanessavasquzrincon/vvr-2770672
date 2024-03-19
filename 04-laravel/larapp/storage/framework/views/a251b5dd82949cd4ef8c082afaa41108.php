@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'Users Page - PetsApp'); ?>
+<?php $__env->startSection('title', 'Pets Page - PetsApp'); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -18,36 +18,36 @@
         
 </header>
 <section class="dashboard">
-    <h1>MODULE USERS</h1>
-    <a href="<?php echo e(url('users/create')); ?>"  class="add">
+    <h1>MODULE PETS</h1>
+    <a href="<?php echo e(url('pets/create')); ?>"  class="add">
         <img src="<?php echo e(asset('images/ico-add.svg')); ?>" width="30px" alt="">
-        Add Users
+        Add Pets
     </a>
  
 </section>
 <table>
     <tbody>
-                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $pets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pet): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td><img src="<?php echo e(asset('images/'. $user->photo)); ?>" alt=""></td>
+                        <td><img src="<?php echo e(asset('images/'. $pet->photo)); ?>" alt="Pet"></td>
                         <td>
-                            <span><?php echo e($user->fullname); ?></span>
-                            <span><?php echo e($user->role); ?></span>
+                            <span><?php echo e($pet->name); ?></span>
+                            <span><?php echo e($pet->kind); ?></span>
                         </td> 
                         <td>
-                            <a href="<?php echo e(route('users.show', $user->id)); ?>" class="show">
+                            <a href="<?php echo e(route('pets.show', $pet->id)); ?>" class="show">
                                 <img src="<?php echo e(asset('images/ico-view.svg')); ?>" alt="Show">
                             </a>
-                            <a href="<?php echo e(route('users.edit', $user->id)); ?>" class="edit">
+                            <a href="<?php echo e(route('pets.edit', $pet->id)); ?>" class="edit">
                                 <img src="<?php echo e(asset('images/ico-edit.svg')); ?>" alt="Edit">
                             </a>
-                            <form action="<?php echo e(url('users/'.$user->id)); ?>" method="post">
-                        <?php echo csrf_field(); ?>
-                        <?php echo method_field('delete'); ?>
-                        <button type="button" class="btn-delete">
-                            <img src="<?php echo e(asset('images/ico-delete.svg')); ?>" alt="Delete">
-                        </button>
-                    </form>
+                            <form action="<?php echo e(url('pets/'.$pet->id)); ?>" method="post">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('delete'); ?>
+                                <button type="button" class="btn-delete">
+                                    <img src="<?php echo e(asset('images/ico-delete.svg')); ?>" alt="Delete">
+                                </button>
+                            </form>
                         </td>
                     </tr>
                         
@@ -63,7 +63,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3"> <?php echo e($users->links('layouts.paginator')); ?> </td>
+            <td colspan="3"> <?php echo e($pets->links('layouts.paginator')); ?> </td>
         </tr>
     </tfoot>
 </table>
@@ -109,4 +109,4 @@
     
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\vanessa\vvr-2770672\04-laravel\larapp\resources\views/users/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\vanessa\vvr-2770672\04-laravel\larapp\resources\views/pets/index.blade.php ENDPATH**/ ?>

@@ -318,6 +318,9 @@ menu{
         margin-top: -30px;
     }
 
+    section.module{
+        margin-top: 30px;
+    }
 
 
     section.module h1{
@@ -348,52 +351,84 @@ menu{
         
     
 
-table{
-    color: #3C096C;
-    border-collapse: collapse;
-    width: 400px;
-    tbody{
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        tr{
+  
             
-            border-radius: 20px;
-            background-color: #FFFFFF;
-            padding: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            &:nth-last-child(even){
-            background-color: #cc97fd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            }
-            td:nth-child(1) {
-                img {
-                    border-radius: 100px;
-                    height: 60px;
-                    border: 2px solid #55297e;
-                    width: 60px;
-                }
-            }
-            td:nth-child(2){
-               
+
+        table {
+            color: #3C096C;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            width: 400px;
+            tbody {
                 display: flex;
-                float: none;
                 flex-direction: column;
-                width: 100px;
+                gap: 0.6rem;
+                tr {
+                    border-radius: 20px;
+                    background-color: #FFFFFF;
+                    display: flex;
+                    padding: 14px 14px 8px 14px;
+                    justify-content: space-between;
+                    align-items: center;
+                    &:nth-last-child(even) {
+                        background-color: #cc97fd;
+                    }
+                    td {
+                        padding: 0px;
+                        a:is(:link, :visited) {
+                            text-decoration: none;
+                            img {
+                                transform: scale(0.9);
+                                transition: all 0.2s ease-in;
+                            }
+                        }
+                        a:is(:hover) img {
+                            transform: scale(1);
+                        }
 
-                span:last-child{
-                    font-weight: 300;
-                    font-size: 14px;
-                    color: #6e6575;
-
+                    }
+                    td:nth-child(1) {
+                        img {
+                            border-radius: 100px;
+                            height: 60px;
+                            border: 2px solid #55297e;
+                            width: 60px;
+                        }
+                    }
+                    td:nth-child(2) {
+                        display: flex;
+                        flex-direction: column;
+                        width: 160px;
+                        span:last-child {
+                            font-weight: 300;
+                            font-size: 14px;
+                        }
+                    }
+                    td:nth-child(3) {
+                        display: flex;
+                        form {
+                            margin: 0;
+                            padding: 0;
+                            button {
+                                background: none;
+                                border: none;
+                                display: block;
+                                height: 40px;
+                                cursor: pointer;
+                                transform: scale(0.9);
+                                transition: all 0.2s ease-in;
+                                width: 40px;
+                                padding: 0;
+                                &:hover {
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+                        
+                    }
                 }
             }
 
-        }
         
         
 
@@ -404,7 +439,7 @@ table{
     
     
     
-}
+
 section.create {
     margin-top: -0.9px;
     h1 {

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Users Page - PetsApp')
+@section('title', 'Pets Page - PetsApp')
 
 @section('content')
 
@@ -18,36 +18,36 @@
         
 </header>
 <section class="dashboard">
-    <h1>MODULE USERS</h1>
-    <a href="{{url('users/create')}}"  class="add">
+    <h1>MODULE PETS</h1>
+    <a href="{{url('pets/create')}}"  class="add">
         <img src="{{ asset('images/ico-add.svg')}}" width="30px" alt="">
-        Add Users
+        Add Pets
     </a>
  
 </section>
 <table>
     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($pets as $pet)
                     <tr>
-                        <td><img src="{{asset('images/'. $user->photo)}}" alt=""></td>
+                        <td><img src="{{asset('images/'. $pet->photo)}}" alt="Pet"></td>
                         <td>
-                            <span>{{ $user->fullname}}</span>
-                            <span>{{ $user->role}}</span>
+                            <span>{{ $pet->name}}</span>
+                            <span>{{ $pet->kind}}</span>
                         </td> 
                         <td>
-                            <a href="{{ route('users.show', $user->id) }}" class="show">
+                            <a href="{{ route('pets.show', $pet->id) }}" class="show">
                                 <img src="{{ asset('images/ico-view.svg') }}" alt="Show">
                             </a>
-                            <a href="{{ route('users.edit', $user->id) }}" class="edit">
+                            <a href="{{ route('pets.edit', $pet->id) }}" class="edit">
                                 <img src="{{ asset('images/ico-edit.svg') }}" alt="Edit">
                             </a>
-                            <form action="{{ url('users/'.$user->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button type="button" class="btn-delete">
-                            <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete">
-                        </button>
-                    </form>
+                            <form action="{{ url('pets/'.$pet->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="button" class="btn-delete">
+                                    <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete">
+                                </button>
+                            </form>
                         </td>
                     </tr>
                         
@@ -63,7 +63,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3"> {{$users->links('layouts.paginator')}} </td>
+            <td colspan="3"> {{$pets->links('layouts.paginator')}} </td>
         </tr>
     </tfoot>
 </table>
