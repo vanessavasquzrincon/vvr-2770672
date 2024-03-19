@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adoption;
+use App\Models\Pet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class AdoptionController extends Controller
 {
@@ -21,7 +24,16 @@ class AdoptionController extends Controller
      */
     public function create()
     {
-        //
+        $adps = Adoption::all();
+        $idp = array();
+        foreach($adps as $adp){
+            $idp[] = $adp->pet_id;
+
+        }
+        //$pets = Pet::all()
+        $pets = Pet::whereNotIn('id', $idp)->get();
+        //dd($pets->toArray());
+        return view('adoptions.create')->with('pets', $pets);
     }
 
     /**
@@ -62,5 +74,16 @@ class AdoptionController extends Controller
     public function destroy(Adoption $adoption)
     {
          // Delete photo
+    }
+
+    public function myadoptions(){
+        $adps = Adoption::where('user_id', Auth::user()->id)->get();
+        //dd($adps)->toArray();
+        return view('adoptions.myadoptions')->with('adps', $adps);
+    }
+
+    public function add(Request $request){
+        $pet = Pet::find($request->id);
+        return view('adoptions.add')->with('pet', $pet);
     }
 }

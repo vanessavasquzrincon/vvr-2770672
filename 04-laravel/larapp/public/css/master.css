@@ -322,6 +322,12 @@ menu{
         margin-top: 30px;
     }
 
+    p.no-adoptions{
+        align-self: center;
+        font-size: 30px;
+        margin-top: 4rem;
+    }
+
 
     section.module h1{
         
@@ -569,6 +575,10 @@ div.pets{
             img{
                 margin-top: 0;
                 width: 80px;
+                height: 80px;
+                border-radius: 60px;
+                object-fit: cover;
+                border: 2px solid #3C096C;
             }
             p{
                 display: flex;
@@ -616,7 +626,7 @@ div.pets{
     border-radius: 50px; /* Cambiado a 50px para un aspecto más redondeado */
     text-decoration: none;
     height: 80px; /* Aumentado el tamaño a 100px */
-    width: 30%; /* Cambiado el ancho al 60% */
+    width: 300px; /* Cambiado el ancho al 60% */
     max-width: 900px; /* Limitando el ancho máximo a 300px */
     color: #fff;
     font-size: 30px; /* Corregido a 24px */
@@ -780,4 +790,6 @@ table{
             }
         }
     }
+
+   
 }
