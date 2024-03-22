@@ -28,16 +28,14 @@
         <p>{{ $pet->location}}</p>
     </div>
 
-    <form action="{{url('myadoptions/store')}}" method="POST">
-        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-        <input type="hidden" name="pet_id" value="{{$pet->id}}">
+    <form action="{{ url('myadoptions/store') }}" method="post">
+        @csrf
+        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+        <input type="hidden" name="pet_id" value="{{ $pet->id }}">
         <button class="btn">Adopt Me</button>
-
-
     </form>
-    
-            
 </section>
+
 
 
 @endsection

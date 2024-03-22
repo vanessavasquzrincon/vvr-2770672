@@ -45,4 +45,20 @@
     </table>
 </section>
 <?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <?php if(session('message')): ?>
+        <script>
+        $(document).ready(function () {
+            Swal.fire({
+                position: "top-end",
+                title: "Great job!",
+                text: "<?php echo e(session('message')); ?>",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 5000
+            })
+        })
+        </script>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\vanessa\vvr-2770672\04-laravel\larapp\resources\views/adoptions/myadoptions.blade.php ENDPATH**/ ?>

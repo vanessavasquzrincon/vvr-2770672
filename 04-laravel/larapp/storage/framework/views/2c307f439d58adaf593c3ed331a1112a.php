@@ -28,16 +28,14 @@
         <p><?php echo e($pet->location); ?></p>
     </div>
 
-    <form action="<?php echo e(url('myadoptions/store')); ?>" method="POST">
+    <form action="<?php echo e(url('myadoptions/store')); ?>" method="post">
+        <?php echo csrf_field(); ?>
         <input type="hidden" name="user_id" value="<?php echo e(Auth::user()->id); ?>">
         <input type="hidden" name="pet_id" value="<?php echo e($pet->id); ?>">
         <button class="btn">Adopt Me</button>
-
-
     </form>
-    
-            
 </section>
+
 
 
 <?php $__env->stopSection(); ?>
